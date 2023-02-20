@@ -99,14 +99,14 @@ app.post('/users/register',async(req,res)=>{
                 if (err) {
                     throw err;
                 }
-                console.log("Resultado aqui!")
+                console.log("Resultado do proprietário do e-mail que está tentando se cadastrar!")
                 console.log(results.rows)
 
                 if (results.rows.length > 0) {
                     errors.push({message: "O e-mail já se encontra registrado na base de dados."});
                     res.render("register", {errors});
-                } else {
-                    pool.query(
+                } else {                    
+                    pool.query( 
                         `INSERT INTO users (name, email, password)
                         VALUES ($1, $2, $3)
                         RETURNING id, password`,

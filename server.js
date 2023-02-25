@@ -125,6 +125,13 @@ app.post('/users/register',async(req,res)=>{
     }
 });  
 
+// app.update("/users/update", async (req,res)=>{
+//     const {password, password2} = req.body
+
+//     const hashedPassword = await bcrypt.hash(password, 10);
+//     pool.query(`update users set password = $1 where "id" = id `) [hashedPassword]
+// });
+
 // realizar login
 app.post("/users/login", 
         passport.authenticate("local", {
